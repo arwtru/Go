@@ -1,0 +1,34 @@
+/////////////////////1
+/* Ejemplo del paquete testing*/
+
+//En un archivo colocamos las funciones y todo el codigo que vamos implementar
+package experimentos
+
+func Suma(numero1, numero2 int) (resultado int) {
+	//resultado = numero1 + numero2
+	resultado = numero1 - numero2
+	return
+}
+
+//En un archivo aparte, pero dentro de la misma carpeta, creamos un archivo importando el testing
+//Llamando a la funcion con este formato:
+/*
+func Test_nombre(t *testing.T){
+}
+*/
+
+
+package experimentos
+
+import "testing"
+
+func TestSuma(t *testing.T) {
+	valor := Suma(7, 23)
+	if valor != 30 {
+		t.Error("Se esperaba 30 y se obtuvo", valor)
+	}
+
+}
+//De esta forma podemos hacer pruebas a nuestro codigos.
+
+/////////////////////////////////////////////////////////
