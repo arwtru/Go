@@ -31,4 +31,37 @@ func TestSuma(t *testing.T) {
 }
 //De esta forma podemos hacer pruebas a nuestro codigos.
 
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////2
+
+/*Ejemplo de combinaciones de string*/
+
+package main
+
+import "fmt"
+
+//funcion que realiza la combinacion de las palabras, usando un mapa que va de enteros compuesto por strings
+func combinaciones(A, B map[int]string) []string {
+	var c []string
+	for i:=0;i<len(A);i++{
+		for j:=0;j<len(B);j++{
+			c=append(c,A[i] + " " + B[j],B[j] + " " + A[i])
+		}
+	}
+return c	
+}
+
+func main() {
+	palabra1 := make(map[int]string)
+	palabra2 := make(map[int]string)
+	palabra1[0]="Arwin"
+	//palabra1[1]="Julian"
+	palabra2[0]="Trujillo"
+	palabra2[1]="Ardila"
+	
+	fmt.Println(combinaciones(palabra1, palabra2))
+}
+
+
+//De esta forma se pueden realizar combinaciones entre objetos, se puede modificar para otro tipo de elementos.
+
+///////////////////////////////////////3
