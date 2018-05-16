@@ -65,3 +65,56 @@ func main() {
 //De esta forma se pueden realizar combinaciones entre objetos, se puede modificar para otro tipo de elementos.
 
 ///////////////////////////////////////3
+/*Ejemplo de un numero entero aleatorio*/
+
+//No resulta ser netamente aleatorio, pero utiliza la hora de tu ordenador la cual cambia y ayuda a la aleatoriedad.
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+// Returns an int >= min, < max
+//Esta funcion arroja el numero aleatorio entre el rango establecido del minimo y maximo
+func randomInt(min, max int) int {
+    return min + rand.Intn(max-min)
+}
+
+func main() {
+    rand.Seed(time.Now().UnixNano())//UnixNano convierte la hora actual de tu ordenador a un Unit64 par asi con rand.Seed generar el valor de forma aleatoria o casi aleatoria.
+    fmt.Println(randomInt(1, 11)) //get an int in the 1...10 range
+}
+
+//////////////////////////////////////////////////////4
+/*Ejemplo de generar una cadena de caracteres de forma aleatoria con el algoritmo del ejemplo 3*/
+
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+// Returns an int >= min, < max
+//numero aleatorio entero
+func randomInt(min, max int) int {
+    return min + rand.Intn(max-min)
+}
+
+// Generate a random string of A-Z chars with len = l
+func randomString(len int) string {
+    bytes := make([]byte, len)
+    for i := 0; i < len; i++ {
+        bytes[i] = byte(randomInt(65, 90))
+    }
+    return string(bytes)
+}
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+    fmt.Println(randomString(10)) // print 10 chars
+}
+//////////////////////////5
