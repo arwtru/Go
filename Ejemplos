@@ -118,3 +118,25 @@ func main() {
     fmt.Println(randomString(10)) // print 10 chars
 }
 //////////////////////////5
+/*Ejemplo de generar un numero aleatorio de tipo float64*/
+
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+// Returns an int >= min, < max
+//Esta funcion arroja el numero aleatorio entre el rango establecido del minimo y maximo
+func randomInt(min, max int) int {
+	return min + rand.Intn(max-min)
+}
+
+func main() {
+	var Random float64
+	rand.Seed(time.Now().UnixNano()) //UnixNano convierte la hora actual de tu ordenador a un Unit64 para asi con rand.Seed generar el valor de forma aleatoria o casi aleatoria.
+	Random = float64(randomInt(1, 5)) + rand.Float64() // se indican en el randomInt donde en que rango se desea el aleatorio.
+	fmt.Println(Random)
+}
