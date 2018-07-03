@@ -140,3 +140,19 @@ func main() {
 	Random = float64(randomInt(1, 5)) + rand.Float64() // se indican en el randomInt donde en que rango se desea el aleatorio.
 	fmt.Println(Random)
 }
+//////////////////////////6
+/*Ejemplo la estructura general para los test de cualquier prueba, se fundamenta en 3 aspectos principales 1.Tengo esto,2.Hice esto, 3.Debe pasar esto*/
+func TestNombredelaprueba(t *testing.T) {
+
+	Convey("Given a list of keywords", t, func() {
+
+		Convey("When they are inserted", func() {
+
+			Convey("They should be grouped by cost", func() {
+
+			})
+		})
+	})
+
+
+
