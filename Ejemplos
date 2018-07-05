@@ -153,6 +153,49 @@ func TestNombredelaprueba(t *testing.T) {
 			})
 		})
 	})
+/////////////////////////7
+/*Ejemplo de un test que abre un csv, lo lee, extrae las varibles del csv e inserta en una base de datos*/
+
+func TestMariadb1(t *testing.T) {
+
+	Convey("Given a list of keywords", t, func() {
+		//abrimos el archivo
+		file, _ := os.Open(os.Getenv("GOPATH") + "/src/github.com/entropyx/apolo/data/brandreport.csv")
+		r := csv.NewReader(bufio.NewReader(file))
+
+		count := 1
+
+		for {
+			//leemos el archivo
+			record, err := r.Read()
+			if err == io.EOF {
+				break
+			}
+			//extraemos la data y convertimos a los valores correspondientes, entero,float,etc.
+			//Nota ubicamos cada columna que corresponde.
+			cost, _ := strconv.ParseFloat(record[5], 10)
+			clicks, _ := strconv.ParseInt(record[6], 10, 64)
+			impressions, _ := strconv.ParseInt(record[7], 10, 64)
+			conversions, _ := strconv.ParseFloat(record[9], 10)
+			totalconvervalue, _ := strconv.ParseFloat(record[10], 10)
+
+			data := Keyword{
+				KeywordText:          record[3],
+				Cost:                 cost,
+				Clicks:               int(clicks),
+				Impressions:          int(impressions),
+				Conversions:          conversions,
+				TotalValueConversion: totalconvervalue,
+			}
+
+			Create(&data)
+
+			count++
+		}
+
+	})
+
+}
 
 
 
