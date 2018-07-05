@@ -153,6 +153,7 @@ func TestNombredelaprueba(t *testing.T) {
 			})
 		})
 	})
+}
 /////////////////////////7
 /*Ejemplo de un test que abre un csv, lo lee, extrae las varibles del csv e inserta en una base de datos*/
 
