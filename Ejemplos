@@ -197,6 +197,11 @@ func TestMariadb1(t *testing.T) {
 	})
 
 }
+///////////////////////8/////////////////////
+/*Comando para tener persente*/
+new(nombre_struct) //inicializa en 0 y retorna un puntero del mismo.
+////////////////////////////////9///////////////////////
+
 
 
 
