@@ -207,11 +207,62 @@ func round(num float64) int {
 	return int(num + math.Copysign(0.5, num))
 }
 //////////////////////////10///////////////////////
+/*  Ejemplos de for con el range */
 
+package main
 
+import "fmt"
 
+func main() {
+	nums := []int{2, 3, 4}
+	sum1 := 0
+	//recorrienod un for y sumando sin orden.
+	for i, num := range nums {
+		sum1 += num
+		fmt.Println(i)
+	}
 
+	fmt.Println("suma", sum1)
+	//recorriendo numeros
+	for i, num := range nums {
+		if num == 3 {
+			fmt.Println("index", i)
+		} else {
+			fmt.Println("otro index", i)
+		}
+	}
+	//recorriendo un map de string
+	kvs := map[string]string{"a": "apple", "b": "banana"}
+	for k, v := range kvs {
+		fmt.Printf("%s -> %s\n", k, v)
+	}
+	//numero de bits
+	for i, c := range "palbra" {
+		fmt.Println(i, c)
+	}
+}
+//////////////////////////////////////11//////////////////////////////
+/*Ejemplo de funciones variaticas*/
+package main
 
+import "fmt"
+//En esta funcioion y con los ... nos permite colocar tantos enteros como sea necesario.
+func Sum(nums ...int) {
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
+}
+
+func main() {
+	Sum(1, 2)
+	Sum(1, 2, 3)
+
+	nums := []int{1, 2, 3, 4}
+	Sum(nums...)
+}
 
 
 
