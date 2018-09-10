@@ -18,3 +18,23 @@ func main() {
     fmt.Println(fact(7))
 }
 ///////////////////////////2////////////////////
+package main
+
+import "fmt"
+
+func ping(pings chan<- string, mensaje string){
+    pings <- mensaje
+}
+
+func pong(recibir <-chan string, enviar chan<- string) {
+    msg := <-recibir
+    enviar<- msg
+}
+
+func main() {
+    pings := make(chan string, 1)
+    pongs := make(chan string, 1)
+    ping(pings, "mensaje enviado")//canal 1 mensaje y envio 
+    pong(pings, pongs) //canal 1 recibir  y 2 enviar
+    fmt.Println(<-pongs)
+}
