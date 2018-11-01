@@ -38,3 +38,14 @@ func main() {
     pong(pings, pongs) //canal 1 recibir  y 2 enviar
     fmt.Println(<-pongs)
 }
+/////////////////////////////////////////////////////3///////////////////////////
+//Esta funcion redondea un flotante con precision del numero de decimales que se pida, es muy util cuando hacemos operaciones de division.
+
+
+func Round(number float64, precision int) float64 {
+	var out float64
+	v1 := math.Pow(10, float64(precision))
+	v2 := int(number*v1 + math.Copysign(0.5, number*v1))
+	out = float64(v2) / v1
+	return out
+}
